@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Map</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css"/>
+
+<script>
+    // Initialize the map
+    var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+    // Add a base map layer (you can use different tile layers)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+
+    // Add a marker
+    var marker = L.marker([51.5, -0.09]).addTo(mymap);
+
+    // Add a popup to the marker
+    marker.bindPopup("<b>Hello!</b><br>This is an interactive map.").openPopup();
+</script>
+
+</body>
+</html>
